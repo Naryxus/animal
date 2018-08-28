@@ -1,4 +1,4 @@
-\documentclass[solution]{tudexercise}
+\documentclass[solution]{tudreport}
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
 \usepackage{amsmath}
@@ -7,12 +7,33 @@
 \usepackage{float}
 \usepackage{enumerate}
 \usepackage{rotating}
+\usepackage{listings}
 \title{Visualisierung von Algorithmen und Datenstrukturen}
 \subtitle{Abschlussbericht}
 \subsubtitle{Gruppe 33: Benedikt Lins (1799381) und Stefan Thaut (1800351)\\
 			Fachbereich 20 - Informatik\\
 			\today}
 \begin{document}
+	\lstset{language=Java}
 	\maketitle
 	
+	\chapter{Lernerfolge}
+		In diesem Praktikum sollten verschiedene Datenstrukturen und Algorithmen visualisiert werden. Dazu sollte das in Java geschriebene Framework \textit{Animal} genutzt werden. Dieses Framework bietet verschiedene grafische Primitive an, um sowohl den Zustand einer Datenstruktur oder Algorithmus als auch die verschiedenen Vorgänge während einer Operation der Datenstruktur oder der Algorithmen visualisieren zu können.\\
+		Neben einer Auffrischung in objekt-orientierter Programmierung sowie der Funktionsweise verschiedener Datenstrukturen und Algorithmen - in unserem Fall die Dial-Implementierung der beschränkten monotonen Prioritätswarteschlange und dem Edmonds-Karp Algorithmus - haben wir den Umgang mit Animal gelernt und damit auch, was in einem Algorithmus alles visualisiert werden muss. Selbst kleinere Veränderungen des Zustands sollten hervorgehoben werden, um das Verständnis des Betrachters zu fördern.
+		
+	\chapter{Bewertung von Animal}
+		Animal bietet eine ausreichende Menge an Visualisierungsmöglichkeiten an für die grundlegende Darstellung von Datenstrukturen und Algorithmen. Verbesserungsmöglichkeiten sehen wir nur punktuell.
+		\section{Dokumentation}
+			Bei einigen Klassen und Methoden, die wir genutzt haben, fehlen teilweise Informationen oder die Dokumentation gänzlich. Ein gutes Beispiel dafür sind die Parameter \textit{direction} und \textit{moveType} der Methoden \textit{moveVia} und \textit{moveTo}. Hier ist zwar beschrieben, dass die beiden Parameter die Richtung, in der das Primitiv bewegt werden soll, bzw. den Typ der Bewegung angeben sollen. Leider sind aber nicht die möglichen Werte angegeben, die der jeweilige String annehmen kann. Dies verzögert die Entwicklung, da zunächst entweder per Trial and Error getestet werden muss, was man einsetzen kann, oder sich andere Generatoren anschauen muss, wie der jeweilige Code aussehen muss.
+		
+		\section{Label für die Inhaltsangabe}
+			Während der Überarbeitung der Algorithmen, um Einträge in der Inhaltsangabe einzufügen, sind wir auf die Kuriosität gestoßen, dass man den Titel für den Schritt, den man in der Inhaltsangabe aufführen möchte, in der \lstinline!nextStep()!-Methode \textbf{nach} dem jeweiligen Schritt angeben muss:
+			\begin{lstlisting}[frame=single, caption = Code-Beispiel für die Angabe des Titels nach dem Code]
+lang.nextStep();
+
+//Code for important Step
+
+lang.nextStep("Title for important Step");
+			\end{lstlisting}
+			Dies ist für den Programmierer eher unintuitiv, da man davon ausgeht, dass das was nach dem Aufruf folgt, unter dem entsprechenden Titel zu finden ist. Wir vermuten, dass dies daran liegt, dass man für den ersten Schritt (i.d.R. die Titelfolie) die \lstinline!nextStep()!-Methode nicht aufruft und so keinen Eintrag in der Inhaltsangabe erzeugen könnte.
 \end{document}
