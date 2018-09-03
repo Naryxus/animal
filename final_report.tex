@@ -1,4 +1,4 @@
-\documentclass[solution]{tudreport}
+\documentclass[solution]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
 \usepackage{amsmath}
@@ -9,20 +9,26 @@
 \usepackage{rotating}
 \usepackage{listings}
 \title{Visualisierung von Algorithmen und Datenstrukturen}
-\subtitle{Abschlussbericht}
-\subsubtitle{Gruppe 33: Benedikt Lins (1799381) und Stefan Thaut (1800351)\\
-			Fachbereich 20 - Informatik\\
-			\today}
+%\subtitle{Abschlussbericht}
+%\subsubtitle{Gruppe 33: Benedikt Lins (1799381) und Stefan Thaut (1800351)\\
+%			Fachbereich 20 - Informatik\\
+%			\today}
 \begin{document}
 	\lstset{language=Java}
 	\maketitle
 	
 	\chapter{Lernerfolge}
 		In diesem Praktikum sollten verschiedene Datenstrukturen und Algorithmen visualisiert werden. Dazu sollte das in Java geschriebene Framework \textit{Animal} genutzt werden. Dieses Framework bietet verschiedene grafische Primitive an, um sowohl den Zustand einer Datenstruktur oder Algorithmus als auch die verschiedenen Vorgänge während einer Operation der Datenstruktur oder der Algorithmen visualisieren zu können.\\
-		Neben einer Auffrischung in objekt-orientierter Programmierung sowie der Funktionsweise verschiedener Datenstrukturen und Algorithmen - in unserem Fall die Dial-Implementierung der beschränkten monotonen Prioritätswarteschlange und dem Edmonds-Karp Algorithmus - haben wir den Umgang mit Animal gelernt und damit auch, was in einem Algorithmus alles visualisiert werden muss. Selbst kleinere Veränderungen des Zustands sollten hervorgehoben werden, um das Verständnis des Betrachters zu fördern.
+		Neben einer Auffrischung in objekt-orientierter Programmierung sowie der Funktionsweise verschiedener Datenstrukturen und Algorithmen - in unserem Fall die Dial-Implementierung der beschränkten monotonen Prioritätswarteschlange und dem Edmonds-Karp Algorithmus - haben wir den Umgang mit Animal gelernt und damit auch, was in einem Algorithmus alles visualisiert werden muss. Zwar sollten selbst kleinere Veränderungen des Zustands sollten hervorgehoben werden, um das Verständnis des Betrachters zu fördern, jedoch muss dabei auch auf ein Maß an Übersichtlichkeit geachtet werden, damit der Betrachter die Möglichkeit hat, das Gesehene schnell zu verstehen.
+		Denn Keinem ist geholfen, wenn die Visualisierung alle Vorgänge das Algorithmus gesamtheitlich und detailiert darstellt, aber der einfache Betrachter Probleme bekommt, die Vorgänge selbst zu verstehen und zu erfassen.
 		
 	\chapter{Bewertung von Animal}
-		Animal bietet eine ausreichende Menge an Visualisierungsmöglichkeiten an für die grundlegende Darstellung von Datenstrukturen und Algorithmen. Verbesserungsmöglichkeiten sehen wir nur punktuell.
+		Die Idee von Animal ist, verschiedene Algorithmen und Datenstrukturen verständlich zu visualisieren, um das Erlernen und Verstehen dieser einfacher zu gestalten. Dabei setzt Animal auf dynamische Animationen, welche einen gewählten Algorithmus auf einem konkreten Beispiel ausführen. Dies hat den Vorteil, dass der Lernende nicht direkt mit der mathematischen Definition des Algorithmus konfrontiert wird und zuerst eine Intuition für die Funktionsweise erwirbt. Dies ersetzt leider nicht vollständig das Studium der konkreten Definition, vereinfacht das Verständis dieser jedoch.\\
+		Das Animal-Framework bietet eine ausreichende Menge an Visualisierungsmöglichkeiten für die grundlegende Darstellung von Datenstrukturen und Algorithmen an. Verbesserungsmöglichkeiten sehen wir daher nur punktuell.
+		\section{Algorithmen Bugfixing}
+			Während der Bearbeitung des Praktikums haben wir verschiedene Algorithmen ausgewählt und die dazugehörige Animation angesehen. Dabei ist uns aufgefallen, dass in der aktuellen Version von Animal einige Generatoren existieren, welche nicht funktionieren. Auch halten sich anscheinend nicht alle implementierten Generatoren an die Vorgaben, welche wir im Rahmen des Praktikums erhalten haben. Zum Beispiel existieren keine Einleitungsfolien, Texte und Formen überlagern sich, sodass diese nur schwer bis gar nicht zu verstehen sind oder der Generator is nicht dynamisch gestaltet. Es wäre hilfreich, wenn solche \glqq schlechten\grqq \space Generatoren nicht in Animal integriert wären, damit die allgemein hohe Qualität von Animal nicht gesenkt wird.
+		\section{Namensgebung Generatoren}
+			Die Namen der Generatoren können vom jeweiligen Entwickler selbst gewählt werden. Dies kann dazu führen, dass die Namen uneindeutig sind. Auch kann es so vorkommen, dass zu einem Algorithmus oder einer Datenstruktur zwei oder mehr Generatoren existieren, was für den Betrachter verwirrend sein kann. Wenn zwei Algorithmen den selben Namen aufweisen, dann sind meist die Sprachen und/oder Programmiersprachen unterschiedlich, es würde im Sinne der Übersicht und einfachen Bedienung sinnvoll sein, wenn zu jedem konkreten Algorithmus nur ein Generator existiert, welcher dann durch angabe der gewünschten Sprache und Programmiersprache konkretisiert wird. Eine solche Möglichkeit existiert bereits für die Sprache, eine Erweiterung für die Programmiersprache scheint also nicht allzu aufwendig. Dabei sollte dann auch versucht werden, die doppelten Generatoren zusammenzufassen. Diese vorgeschlagenen Verbesserungen, würden die Suche nach dem gewünschten Generator deutlich vereinfachen.
 		\section{Dokumentation}
 			Bei einigen Klassen und Methoden, die wir genutzt haben, fehlen teilweise Informationen oder die Dokumentation gänzlich. Ein gutes Beispiel dafür sind die Parameter \textit{direction} und \textit{moveType} der Methoden \textit{moveVia} und \textit{moveTo}. Hier ist zwar beschrieben, dass die beiden Parameter die Richtung, in der das Primitiv bewegt werden soll, bzw. den Typ der Bewegung angeben sollen. Leider sind aber nicht die möglichen Werte angegeben, die der jeweilige String annehmen kann. Dies verzögert die Entwicklung, da zunächst entweder per Trial and Error getestet werden muss, was man einsetzen kann, oder sich andere Generatoren anschauen muss, wie der jeweilige Code aussehen muss.
 		
@@ -42,7 +48,9 @@ lang.nextStep("Title for important Step");
 		\section{Übersicht der Generatoren}
 			Bei der Recherche bereits vorhandener Generatoren ist uns aufgefallen, dass die Suche nach bestimmten Generatoren in der Übersicht in Animal schwierig ist. Auch wenn für alle Generatoren eine Kurzbeschreibung in der Übersicht angezeigt wird, ist diese manchmal nur wenig aussagend oder unverständlich formuliert, sodass man den Generator erst einmal starten muss, um zu erkennen, was der Algorithmus tatsächlich leisten soll. Auch die Namen sind manchmal unglücklich gewählt, sodass man bei manchen Algorithmen fälschlicherweise einen anderen Algorithmus erwartet als den, den man dann letztendlich startet.\\
 			Darüber hinaus ist es bei manchen Algorithmen schwer, diese in eine passende Kategorie einzuordnen. Der Algorithmus von Edmonds und Karp beispielsweise kann sowohl in die Kategorie der Graphenalgorithmen als auch in Algorithmen für Netzwerke eingeordnet werden. Hier könnte eine konsistentere Kategorisierung vorgenommen werden.
-	
+	\chapter{Bearbeitung des Praktikums}
+		Wir haben uns für eine Bearbeitung als Team entschieden. Wobei wir die Aufgaben nicht aufgeteilt haben und uns bei wöchtentlichen Treffen zusammen an die Programmierung der Generatoren gesetzt haben. Dabei war es in unserem Fall von Vorteil, dass wir die gewählten Algorithmen für eine anderes Fach bereits implementiert hatten und so die Grundstruktur schon gegeben hatten. Während unserer ersten Treffen haben wir größtenteils die Art besprochen, wie wir die Algorithmen explizit darstellen wollen und uns in Animal und die Algoanim-API eingearbeitet. Im weiteren Verlauf haben wir den bestehenden Code um die Visualisierung in Animal nach und nach erweitert. 
+		
 	\chapter{Bewertung der Organisation}
 		Die Organisation des Praktikums kann anstandslos als einwandfrei bezeichnet werden. Die Aufgabenstellungen sind offen gestellt, sodass man sich die Bearbeitungszeit des Praktikums vollkommen frei einteilen kann. So ist es sowohl möglich, das Praktikum in den ersten Wochen des Semesters zu absolvieren als auch die Prüfungen des Semesters abzuwarten, um sich besser auf diese vorbereiten zu können und das Praktikum in deren Anschluss zu bearbeiten.\\
 		Eine weitere Unterstützung der Studenten bietet die Möglichkeit, zwischen Online- und Präsenztestaten zu wählen. So werden Studenten, die möglicherweise nicht in der näheren Umgebung der Universität wohnen oder nicht sehr flexibel in der Terminauswahl sind, nicht gezwungen, in der Universität erscheinen zu müssen. Auf der anderen Seite wird Studenten, die Hilfe vor Ort benötigen, durch die Testate die Möglichkeit gegeben, ein Gespräch zu führen.\\\\
